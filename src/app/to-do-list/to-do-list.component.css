@@ -1,0 +1,65 @@
+fieldset {
+    width: clamp(400px, 50%, 800px);
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+fieldset button {
+    margin-left: 10px;
+}
+
+fieldset h4 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.task-item input[type="checkbox"] {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.task-item span {
+    flex-grow: 1;
+    font-size: 20px;
+}
+
+.task-item span.checked {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.delete-button, .edit-button {
+    border: 1px solid gray;
+    border-radius: 7px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.delete-button:hover {
+    color: red;
+}
+
+.edit-button:hover {
+   color: blue;
+
+}

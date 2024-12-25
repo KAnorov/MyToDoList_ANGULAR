@@ -1,0 +1,29 @@
+<fieldset>
+    <legend><h2>Todo List</h2></legend>
+    <input [(ngModel)]="newTask" placeholder="Введите текст..." />
+    <button (click)="addTask()">Добавить задачу</button>
+    <button *ngIf="todoList.length > 0" (click)="deleteCheckedTasks()">Удалить выбранные</button>
+
+    <ul class="task-list">
+        <li *ngFor="let todoItem of todoList; let i = index" class="task-item">
+            <input
+                type="checkbox"
+                (change)="toggleChecked(i)"
+                [checked]="todoItem.checked"
+            />
+            <ng-container *ngIf="editingId === todoItem.id; else showTask">
+                <input
+                    type="text"
+                    [(ngModel)]="editingText"
+                />
+                <button (click)="saveEditTask()">Сохранить</button>
+                <button (click)="cancelEditTask()">Отмена</button>
+            </ng-container>
+            <ng-template #showTask>
+                <span [ngClass]="{'checked': todoItem.checked}">{{ todoItem.text }}</span>
+                <button class="edit-button" (click)="startEditTask(todoItem.id)">🖊</button>
+                <button class="delete-button" (click)="deleteTask(todoItem.id)">✖</button>
+            </ng-template>
+        </li>
+    </ul>
+</fieldset>
